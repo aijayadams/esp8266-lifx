@@ -13,7 +13,7 @@ const uint8_t SIZE_OF_MAC = 6;
 byte lxDevices[MAX_LX_DEVICES][SIZE_OF_MAC];
 IPAddress lxDevicesAddr[MAX_LX_DEVICES];
 
-IPAddress bcastAddr(192, 168, 20, 255);
+IPAddress bcastAddr(255, 255, 255, 255);
 int lxPort = 56700;
 
 WiFiUDP UDP;
@@ -212,6 +212,9 @@ void setup() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+
+  bcastAddr = WiFi.localIP()
+  bcastAddr[3] = 255;
 
   /* Setup Interupts */
   pinMode(2, INPUT_PULLUP);
