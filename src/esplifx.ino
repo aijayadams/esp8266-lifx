@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #include <ESP8266WiFi.h>
 #include <Ticker.h>
 #include <WiFiUdp.h>
@@ -213,7 +215,7 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
-  bcastAddr = WiFi.localIP()
+  bcastAddr = WiFi.localIP();
   bcastAddr[3] = 255;
 
   /* Setup Interupts */
